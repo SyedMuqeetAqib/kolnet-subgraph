@@ -20,7 +20,6 @@ import {
   Campaign,
   Kol,
   KolInvestmentTransaction,
-  PlatformPercentages,
   User,
 } from "../generated/schema";
 export function handleBlackListedKol(event: BlackListedKol): void {
@@ -39,13 +38,26 @@ export function handleBlackListedKol(event: BlackListedKol): void {
 }
 
 export function handleCampaignCreated(event: CampaignCreated): void {
-  let platformPercentage = PlatformPercentages.load(BigInt.fromI32(1).toHex());
-  if (!platformPercentage) {
-    platformPercentage = new PlatformPercentages(BigInt.fromI32(1).toHex());
-    const contract = protoKol2.bind(event.address);
-    platformPercentage.PenaltyFee = BigInt.fromI32(contract._penalty_per());
-    platformPercentage.save();
-  }
+  //   type PlatformPercentage @entity {
+  //   id: ID!
+
+  //   PenaltyFee: BigDecimal!
+
+  //   PlatformFee: BigDecimal!
+  // }
+
+  // let platformPercentage = PlatformPercentage.load(BigInt.fromI32(1).toHex());
+  // if (!platformPercentage) {
+  //   platformPercentage = new PlatformPercentage(BigInt.fromI32(1).toHex());
+  //   const contract = protoKol2.bind(event.address);
+  //   platformPercentage.PenaltyFee = BigInt.fromI32(contract._penalty_per())
+  //     .toBigDecimal()
+  //     .div(BigDecimal.fromString("10000"));
+  //   platformPercentage.PlatformFee = BigInt.fromI32(contract._platformPer())
+  //     .toBigDecimal()
+  //     .div(BigDecimal.fromString("10000"));
+  //   platformPercentage.save();
+  // }
 
   let campaign = Campaign.load(event.params._campaign.campaignNumber.toHex());
   if (!campaign) {
@@ -198,49 +210,55 @@ export function handleClaimBackInvestment(event: ClaimBackInvestment): void {
     event.params.campaign_Id.toString() + "-" + event.params._kol.toHex()
   );
   let campaign = Campaign.load(event.params.campaign_Id.toHex());
+
+  if (campaign && kolInvestment) {
+    if (event.params._progress.gt(BigInt.fromI32(0))) {
+      campaign.InvestedAmount = campaign.InvestedAmount.minus(
+        event.params._investment.plus(
+          kolInvestment.Amount.minus(event.params._investment)
+        )
+      );
+
+      campaign.ClaimableInvestment = campaign.ClaimableInvestment.minus(
+        event.params._investment.plus(
+          kolInvestment.Amount.minus(event.params._investment)
+        )
+      );
+
+      campaign.RemainingInvestment = campaign.RemainingInvestment.plus(
+        event.params._investment.plus(
+          event.params._investment.plus(
+            kolInvestment.Amount.minus(event.params._investment)
+          )
+        )
+      );
+    } else {
+      campaign.InvestedAmount = campaign.InvestedAmount.minus(
+        event.params._investment.plus(
+          kolInvestment.Amount.minus(event.params._investment)
+        )
+      );
+      campaign.RemainingInvestment = campaign.RemainingInvestment.plus(
+        event.params._investment.plus(
+          kolInvestment.Amount.minus(event.params._investment)
+        )
+      );
+
+      campaign.ClaimableInvestment = campaign.ClaimableInvestment.minus(
+        event.params._investment.plus(
+          kolInvestment.Amount.minus(event.params._investment)
+        )
+      );
+    }
+    campaign.save();
+  }
+
   if (kolInvestment) {
     kolInvestment.ClaimedBackInvestment = true;
     kolInvestment.Amount = new BigInt(0);
     kolInvestment.lastClaimedProgress = event.params._progress;
     kolInvestment.InvestmentShare = new BigInt(0);
     kolInvestment.save();
-  }
-  if (campaign) {
-    //   if (event.params._progress.gt(BigInt.fromI32(0))) {
-    campaign.InvestedAmount = campaign.InvestedAmount.minus(
-      event.params._investment
-    );
-
-    campaign.ClaimableInvestment = campaign.ClaimableInvestment.plus(
-      event.params._investment
-    );
-
-    campaign.RemainingInvestment = campaign.RemainingInvestment.plus(
-      event.params._investment
-    );
-    //   } else {
-    //     const contract = protoKol2.bind(event.address);
-
-    // campaign.InvestedAmount = campaign.InvestedAmount.minus(
-    //   event.params._investment.plus(
-    //     event.params._investment.times(
-    //       BigInt.fromI32(contract._penalty_per()).div(new BigInt(10000))
-    //     )
-    //   )
-    // );
-    // campaign.RemainingInvestment = campaign.RemainingInvestment.plus(
-    //   event.params._investment.times(
-    //     BigInt.fromI32(contract._penalty_per()).div(new BigInt(10000))
-    //   )
-    // );
-
-    // campaign.ClaimableInvestment = campaign.ClaimableInvestment.plus(
-    //   event.params._investment.times(
-    //     BigInt.fromI32(contract._penalty_per()).div(new BigInt(10000))
-    //   )
-    // );
-    // }
-    campaign.save();
   }
 }
 

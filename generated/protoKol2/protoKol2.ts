@@ -666,6 +666,58 @@ export class TGEDeposited__Params {
   }
 }
 
+export class WithdrawPenaltyAndUpdateAddress extends ethereum.Event {
+  get params(): WithdrawPenaltyAndUpdateAddress__Params {
+    return new WithdrawPenaltyAndUpdateAddress__Params(this);
+  }
+}
+
+export class WithdrawPenaltyAndUpdateAddress__Params {
+  _event: WithdrawPenaltyAndUpdateAddress;
+
+  constructor(event: WithdrawPenaltyAndUpdateAddress) {
+    this._event = event;
+  }
+
+  get isUpdateAdmin(): boolean {
+    return this._event.parameters[0].value.toBoolean();
+  }
+
+  get _newAddress(): Address {
+    return this._event.parameters[1].value.toAddress();
+  }
+
+  get penaltyAmount(): BigInt {
+    return this._event.parameters[2].value.toBigInt();
+  }
+}
+
+export class WithdrawPresaleByCampaignOwner extends ethereum.Event {
+  get params(): WithdrawPresaleByCampaignOwner__Params {
+    return new WithdrawPresaleByCampaignOwner__Params(this);
+  }
+}
+
+export class WithdrawPresaleByCampaignOwner__Params {
+  _event: WithdrawPresaleByCampaignOwner;
+
+  constructor(event: WithdrawPresaleByCampaignOwner) {
+    this._event = event;
+  }
+
+  get owner(): Address {
+    return this._event.parameters[0].value.toAddress();
+  }
+
+  get shareOfKolsInTermsToken(): BigInt {
+    return this._event.parameters[1].value.toBigInt();
+  }
+
+  get transferPresale(): BigInt {
+    return this._event.parameters[2].value.toBigInt();
+  }
+}
+
 export class protoKol2__campaignsResultCampaignDataStruct extends ethereum.Tuple {
   get investmentClaimed(): BigInt {
     return this[0].toBigInt();

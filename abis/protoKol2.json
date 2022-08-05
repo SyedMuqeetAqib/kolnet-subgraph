@@ -1,8 +1,16 @@
 [
   {
     "inputs": [
-      { "internalType": "address", "name": "_admin", "type": "address" },
-      { "internalType": "address", "name": "_usdt", "type": "address" },
+      {
+        "internalType": "address",
+        "name": "_admin",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_usdt",
+        "type": "address"
+      },
       {
         "internalType": "address",
         "name": "_stakingcontract",
@@ -147,7 +155,11 @@
           },
           {
             "components": [
-              { "internalType": "bool", "name": "isTGE", "type": "bool" },
+              {
+                "internalType": "bool",
+                "name": "isTGE",
+                "type": "bool"
+              },
               {
                 "internalType": "uint16",
                 "name": "tgePercentage",
@@ -304,7 +316,11 @@
           },
           {
             "components": [
-              { "internalType": "bool", "name": "isTGE", "type": "bool" },
+              {
+                "internalType": "bool",
+                "name": "isTGE",
+                "type": "bool"
+              },
               {
                 "internalType": "uint16",
                 "name": "tgePercentage",
@@ -591,10 +607,26 @@
     "inputs": [
       {
         "components": [
-          { "internalType": "address", "name": "kolWallet", "type": "address" },
-          { "internalType": "uint256", "name": "kolID", "type": "uint256" },
-          { "internalType": "string", "name": "name", "type": "string" },
-          { "internalType": "string", "name": "ipfsHash", "type": "string" }
+          {
+            "internalType": "address",
+            "name": "kolWallet",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "kolID",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "ipfsHash",
+            "type": "string"
+          }
         ],
         "indexed": false,
         "internalType": "struct iProtoKol.KOL",
@@ -681,38 +713,124 @@
     "type": "event"
   },
   {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "isUpdateAdmin",
+        "type": "bool"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_newAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "penaltyAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "WithdrawPenaltyAndUpdateAddress",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "shareOfKolsInTermsToken",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "transferPresale",
+        "type": "uint256"
+      }
+    ],
+    "name": "WithdrawPresaleByCampaignOwner",
+    "type": "event"
+  },
+  {
     "inputs": [],
     "name": "_penalty_per",
-    "outputs": [{ "internalType": "uint16", "name": "", "type": "uint16" }],
+    "outputs": [
+      {
+        "internalType": "uint16",
+        "name": "",
+        "type": "uint16"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "_platformPer",
-    "outputs": [{ "internalType": "uint16", "name": "", "type": "uint16" }],
+    "outputs": [
+      {
+        "internalType": "uint16",
+        "name": "",
+        "type": "uint16"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "_transactionPer",
-    "outputs": [{ "internalType": "uint16", "name": "", "type": "uint16" }],
+    "outputs": [
+      {
+        "internalType": "uint16",
+        "name": "",
+        "type": "uint16"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "admin",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_campaignId", "type": "uint256" },
-      { "internalType": "address", "name": "_kol", "type": "address" },
-      { "internalType": "uint16", "name": "progress", "type": "uint16" }
+      {
+        "internalType": "uint256",
+        "name": "_campaignId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "_kol",
+        "type": "address"
+      },
+      {
+        "internalType": "uint16",
+        "name": "progress",
+        "type": "uint16"
+      }
     ],
     "name": "blackListKOL",
     "outputs": [],
@@ -721,16 +839,36 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "", "type": "address" },
-      { "internalType": "uint256", "name": "", "type": "uint256" }
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
     ],
     "name": "blackListedKOL",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "name": "campaigns",
     "outputs": [
       {
@@ -770,8 +908,16 @@
             "name": "marketingBudget",
             "type": "uint256"
           },
-          { "internalType": "uint256", "name": "startDate", "type": "uint256" },
-          { "internalType": "uint256", "name": "endDate", "type": "uint256" },
+          {
+            "internalType": "uint256",
+            "name": "startDate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "endDate",
+            "type": "uint256"
+          },
           {
             "internalType": "uint256",
             "name": "remainingInvestment",
@@ -797,7 +943,11 @@
             "name": "presaleAmount",
             "type": "uint256"
           },
-          { "internalType": "bool", "name": "isKolInvestment", "type": "bool" }
+          {
+            "internalType": "bool",
+            "name": "isKolInvestment",
+            "type": "bool"
+          }
         ],
         "internalType": "struct iProtoKol.CampaignDetails",
         "name": "campaignData",
@@ -832,14 +982,26 @@
       },
       {
         "components": [
-          { "internalType": "bool", "name": "isTGE", "type": "bool" },
+          {
+            "internalType": "bool",
+            "name": "isTGE",
+            "type": "bool"
+          },
           {
             "internalType": "uint16",
             "name": "tgePercentage",
             "type": "uint16"
           },
-          { "internalType": "uint256", "name": "tgeDate", "type": "uint256" },
-          { "internalType": "uint256", "name": "tgeAmount", "type": "uint256" },
+          {
+            "internalType": "uint256",
+            "name": "tgeDate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tgeAmount",
+            "type": "uint256"
+          },
           {
             "internalType": "uint16",
             "name": "amountOfTGEDateUpdation",
@@ -861,11 +1023,31 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_campaignId", "type": "uint256" },
-      { "internalType": "uint256", "name": "progress", "type": "uint256" },
-      { "internalType": "bytes32", "name": "r", "type": "bytes32" },
-      { "internalType": "bytes32", "name": "s", "type": "bytes32" },
-      { "internalType": "uint8", "name": "v", "type": "uint8" }
+      {
+        "internalType": "uint256",
+        "name": "_campaignId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "progress",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "r",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "s",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint8",
+        "name": "v",
+        "type": "uint8"
+      }
     ],
     "name": "claimBackInvestmentByKOL",
     "outputs": [],
@@ -874,7 +1056,11 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_campaignId", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_campaignId",
+        "type": "uint256"
+      }
     ],
     "name": "claimKOLInvestment",
     "outputs": [],
@@ -883,11 +1069,31 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_campaignId", "type": "uint256" },
-      { "internalType": "uint256", "name": "progress", "type": "uint256" },
-      { "internalType": "bytes32", "name": "r", "type": "bytes32" },
-      { "internalType": "bytes32", "name": "s", "type": "bytes32" },
-      { "internalType": "uint8", "name": "v", "type": "uint8" }
+      {
+        "internalType": "uint256",
+        "name": "_campaignId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "progress",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "r",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "s",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint8",
+        "name": "v",
+        "type": "uint8"
+      }
     ],
     "name": "claimPreSaleTokens",
     "outputs": [],
@@ -923,14 +1129,26 @@
             "name": "marketingBudget",
             "type": "uint256"
           },
-          { "internalType": "uint256", "name": "startDate", "type": "uint256" },
-          { "internalType": "uint256", "name": "endTime", "type": "uint256" },
+          {
+            "internalType": "uint256",
+            "name": "startDate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "endTime",
+            "type": "uint256"
+          },
           {
             "internalType": "uint256",
             "name": "numberOfPostsReq",
             "type": "uint256"
           },
-          { "internalType": "string", "name": "ipfsHash", "type": "string" }
+          {
+            "internalType": "string",
+            "name": "ipfsHash",
+            "type": "string"
+          }
         ],
         "internalType": "struct iProtoKol.CampaignDetailsInput",
         "name": "_newCampaignInput",
@@ -958,21 +1176,55 @@
         "name": "_vestingInfoInput",
         "type": "tuple"
       },
-      { "internalType": "uint256", "name": "_tgeDate", "type": "uint256" },
-      { "internalType": "uint16", "name": "_tgePer", "type": "uint16" },
-      { "internalType": "bytes32", "name": "r", "type": "bytes32" },
-      { "internalType": "bytes32", "name": "s", "type": "bytes32" },
-      { "internalType": "uint8", "name": "v", "type": "uint8" }
+      {
+        "internalType": "uint256",
+        "name": "_tgeDate",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint16",
+        "name": "_tgePer",
+        "type": "uint16"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "r",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "s",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint8",
+        "name": "v",
+        "type": "uint8"
+      }
     ],
     "name": "createCampaign",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_campaignId", "type": "uint256" },
-      { "internalType": "uint256", "name": "_amount", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_campaignId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
     ],
     "name": "depositPreSaleTokens",
     "outputs": [],
@@ -981,8 +1233,16 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_campaignId", "type": "uint256" },
-      { "internalType": "address", "name": "token", "type": "address" }
+      {
+        "internalType": "uint256",
+        "name": "_campaignId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      }
     ],
     "name": "generateTGE",
     "outputs": [],
@@ -991,13 +1251,33 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_campaignId", "type": "uint256" },
-      { "internalType": "uint256", "name": "_investment", "type": "uint256" },
+      {
+        "internalType": "uint256",
+        "name": "_campaignId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_investment",
+        "type": "uint256"
+      },
       {
         "components": [
-          { "internalType": "bytes32", "name": "r", "type": "bytes32" },
-          { "internalType": "bytes32", "name": "s", "type": "bytes32" },
-          { "internalType": "uint8", "name": "v", "type": "uint8" }
+          {
+            "internalType": "bytes32",
+            "name": "r",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "s",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "uint8",
+            "name": "v",
+            "type": "uint8"
+          }
         ],
         "internalType": "struct iProtoKol.Signature",
         "name": "sign",
@@ -1011,19 +1291,39 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "", "type": "address" },
-      { "internalType": "uint256", "name": "", "type": "uint256" }
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
     ],
     "name": "investedCampaignDetails",
     "outputs": [
-      { "internalType": "address", "name": "investorKOL", "type": "address" },
+      {
+        "internalType": "address",
+        "name": "investorKOL",
+        "type": "address"
+      },
       {
         "internalType": "uint256",
         "name": "campaignNumber",
         "type": "uint256"
       },
-      { "internalType": "uint256", "name": "investedAmt", "type": "uint256" },
-      { "internalType": "uint256", "name": "investShare", "type": "uint256" },
+      {
+        "internalType": "uint256",
+        "name": "investedAmt",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "investShare",
+        "type": "uint256"
+      },
       {
         "internalType": "uint256",
         "name": "eligibleReward",
@@ -1039,7 +1339,11 @@
         "name": "lastVestingClaimed",
         "type": "uint256"
       },
-      { "internalType": "uint256", "name": "claimedReward", "type": "uint256" },
+      {
+        "internalType": "uint256",
+        "name": "claimedReward",
+        "type": "uint256"
+      },
       {
         "internalType": "uint256",
         "name": "leftOverReward",
@@ -1056,25 +1360,53 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "", "type": "address" },
-      { "internalType": "uint256", "name": "", "type": "uint256" }
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
     ],
     "name": "kolInvestDetails",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "penaltyAmount",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "string", "name": "_name", "type": "string" },
-      { "internalType": "string", "name": "_ipfsHash", "type": "string" }
+      {
+        "internalType": "string",
+        "name": "_name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_ipfsHash",
+        "type": "string"
+      }
     ],
     "name": "registerKOL",
     "outputs": [],
@@ -1083,7 +1415,11 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_campaignId", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_campaignId",
+        "type": "uint256"
+      }
     ],
     "name": "retriveCampaign",
     "outputs": [
@@ -1200,7 +1536,11 @@
           },
           {
             "components": [
-              { "internalType": "bool", "name": "isTGE", "type": "bool" },
+              {
+                "internalType": "bool",
+                "name": "isTGE",
+                "type": "bool"
+              },
               {
                 "internalType": "uint16",
                 "name": "tgePercentage",
@@ -1242,16 +1582,36 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_kol", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_kol",
+        "type": "address"
+      }
     ],
     "name": "retriveKOL",
     "outputs": [
       {
         "components": [
-          { "internalType": "address", "name": "kolWallet", "type": "address" },
-          { "internalType": "uint256", "name": "kolID", "type": "uint256" },
-          { "internalType": "string", "name": "name", "type": "string" },
-          { "internalType": "string", "name": "ipfsHash", "type": "string" }
+          {
+            "internalType": "address",
+            "name": "kolWallet",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "kolID",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "ipfsHash",
+            "type": "string"
+          }
         ],
         "internalType": "struct iProtoKol.KOL",
         "name": "kol",
@@ -1276,7 +1636,11 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_newAdmin", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_newAdmin",
+        "type": "address"
+      }
     ],
     "name": "setNewAdmin",
     "outputs": [],
@@ -1285,8 +1649,16 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_campaignId", "type": "uint256" },
-      { "internalType": "uint16", "name": "_amount", "type": "uint16" }
+      {
+        "internalType": "uint256",
+        "name": "_campaignId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint16",
+        "name": "_amount",
+        "type": "uint16"
+      }
     ],
     "name": "setNumberOfCampaignsUpdations",
     "outputs": [],
@@ -1295,7 +1667,11 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_stakingCont", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_stakingCont",
+        "type": "address"
+      }
     ],
     "name": "setStakingContract",
     "outputs": [],
@@ -1305,15 +1681,33 @@
   {
     "inputs": [],
     "name": "stakingPercentage",
-    "outputs": [{ "internalType": "uint16", "name": "", "type": "uint16" }],
+    "outputs": [
+      {
+        "internalType": "uint16",
+        "name": "",
+        "type": "uint16"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_campaignId", "type": "uint256" },
-      { "internalType": "uint256", "name": "_tgeDate", "type": "uint256" },
-      { "internalType": "address", "name": "_preSaletoken", "type": "address" }
+      {
+        "internalType": "uint256",
+        "name": "_campaignId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_tgeDate",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "_preSaletoken",
+        "type": "address"
+      }
     ],
     "name": "updateCampaign",
     "outputs": [],
@@ -1322,8 +1716,16 @@
   },
   {
     "inputs": [
-      { "internalType": "string", "name": "_name", "type": "string" },
-      { "internalType": "string", "name": "_ipfsHash", "type": "string" }
+      {
+        "internalType": "string",
+        "name": "_name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_ipfsHash",
+        "type": "string"
+      }
     ],
     "name": "updateKolData",
     "outputs": [],
@@ -1332,7 +1734,11 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_campaignId", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_campaignId",
+        "type": "uint256"
+      }
     ],
     "name": "withdawPresaleByCampaignOwner",
     "outputs": [],
@@ -1341,9 +1747,21 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_newAddress", "type": "address" },
-      { "internalType": "bool", "name": "isUpdateAdmin", "type": "bool" },
-      { "internalType": "bool", "name": "wantToWithdraw", "type": "bool" }
+      {
+        "internalType": "address",
+        "name": "_newAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "isUpdateAdmin",
+        "type": "bool"
+      },
+      {
+        "internalType": "bool",
+        "name": "wantToWithdraw",
+        "type": "bool"
+      }
     ],
     "name": "withdrawPenaltyAndUpdateAddress",
     "outputs": [],

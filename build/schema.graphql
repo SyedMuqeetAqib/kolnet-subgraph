@@ -89,12 +89,6 @@ type User @entity {
   Name: String
 }
 
-type Contract @entity {
-  id: ID!
-
-  PenaltyFee: BigInt!
-
-}
 
 type KolInvestmentTransaction @entity {
   id: ID!

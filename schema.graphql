@@ -89,13 +89,6 @@ type User @entity {
   Name: String
 }
 
-type PlatformPercentages @entity {
-  id: ID!
-
-  PenaltyFee: BigInt!
-
-  PlatformFee: BigInt!
-}
 
 type KolInvestmentTransaction @entity {
   id: ID!

@@ -6,8 +6,8 @@ dataSources:
     name: protoKol2
     network: rinkeby
     source:
-      address: "0x5d6fC29BCC2562B060EC0466D264C1203a080E24"
-      startBlock: 11133870
+      address: "0x0bF6951d389001A45BBa5533DfF34B0bdEFbAcA0"
+      startBlock: 11147910
       abi: protoKol2
     mapping:
       kind: ethereum/events
@@ -28,6 +28,8 @@ dataSources:
         - SetMaxTGEAllowance
         - SetPenalty
         - TGEDeposited
+        - WithdrawPenaltyAndUpdateAddress
+        - WithdrawPresaleByCampaignOwner
       abis:
         - name: protoKol2
           file: protoKol2/abis/protoKol2.json
@@ -60,4 +62,8 @@ dataSources:
           handler: handleSetPenalty
         - event: TGEDeposited(uint256,uint256,uint256,uint256,address,address,uint256)
           handler: handleTGEDeposited
+        - event: WithdrawPenaltyAndUpdateAddress(bool,address,uint256)
+          handler: handleWithdrawPenaltyAndUpdateAddress
+        - event: WithdrawPresaleByCampaignOwner(address,uint256,uint256)
+          handler: handleWithdrawPresaleByCampaignOwner
       file: protoKol2/protoKol2.wasm
