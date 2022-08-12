@@ -96,6 +96,15 @@ export class Campaign extends Entity {
     this.set("PreSaleTokenBalance", Value.fromBigInt(value));
   }
 
+  get ClaimBackPresaleTokenAmount(): BigInt {
+    let value = this.get("ClaimBackPresaleTokenAmount");
+    return value!.toBigInt();
+  }
+
+  set ClaimBackPresaleTokenAmount(value: BigInt) {
+    this.set("ClaimBackPresaleTokenAmount", Value.fromBigInt(value));
+  }
+
   get DepositedAmount(): BigInt {
     let value = this.get("DepositedAmount");
     return value!.toBigInt();

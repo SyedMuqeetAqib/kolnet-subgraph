@@ -705,16 +705,20 @@ export class WithdrawPresaleByCampaignOwner__Params {
     this._event = event;
   }
 
+  get campaignId(): BigInt {
+    return this._event.parameters[0].value.toBigInt();
+  }
+
   get owner(): Address {
-    return this._event.parameters[0].value.toAddress();
+    return this._event.parameters[1].value.toAddress();
   }
 
   get shareOfKolsInTermsToken(): BigInt {
-    return this._event.parameters[1].value.toBigInt();
+    return this._event.parameters[2].value.toBigInt();
   }
 
   get transferPresale(): BigInt {
-    return this._event.parameters[2].value.toBigInt();
+    return this._event.parameters[3].value.toBigInt();
   }
 }
 

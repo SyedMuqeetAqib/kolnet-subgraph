@@ -15,6 +15,8 @@ import {
   SetMaxTGEAllowance,
   SetPenalty,
   TGEDeposited,
+  WithdrawPenaltyAndUpdateAddress,
+  WithdrawPresaleByCampaignOwner,
 } from "../generated/protoKol2/protoKol2";
 import {
   Campaign,
@@ -72,6 +74,8 @@ export function handleCampaignCreated(event: CampaignCreated): void {
     campaign.CreatedAt = event.block.timestamp;
 
     campaign.DepositedAmount = new BigInt(0);
+
+    campaign.ClaimBackPresaleTokenAmount = new BigInt(0);
 
     campaign.ClaimableInvestment = new BigInt(0);
 
@@ -421,6 +425,20 @@ export function handleTGEDeposited(event: TGEDeposited): void {
     campaign.DepositedAmount = campaign.DepositedAmount.plus(
       event.params._tgeAmount
     );
+    campaign.save();
+  }
+}
+
+export function handleWithdrawPenaltyAndUpdateAddress(
+  event: WithdrawPenaltyAndUpdateAddress
+): void {}
+
+export function handleWithdrawPresaleByCampaignOwner(
+  event: WithdrawPresaleByCampaignOwner
+): void {
+  let campaign = Campaign.load(event.params.campaignId.toHex());
+  if (campaign) {
+    campaign.ClaimBackPresaleTokenAmount = event.params.transferPresale;
     campaign.save();
   }
 }

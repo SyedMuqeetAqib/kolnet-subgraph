@@ -13,6 +13,8 @@ type Campaign @entity {
 
   PreSaleTokenBalance: BigInt!
 
+  ClaimBackPresaleTokenAmount: BigInt!
+
   DepositedAmount: BigInt!
 
   CampaignOwner: Bytes!
@@ -88,7 +90,6 @@ type User @entity {
 
   Name: String
 }
-
 
 type KolInvestmentTransaction @entity {
   id: ID!

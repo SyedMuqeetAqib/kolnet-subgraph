@@ -6,12 +6,12 @@ dataSources:
     name: protoKol2
     network: rinkeby
     source:
-      address: "0x0bF6951d389001A45BBa5533DfF34B0bdEFbAcA0"
-      startBlock: 11147910
+      address: "0x7578E632092D262D78Ebe3a24A6361702CE31EAE"
       abi: protoKol2
+      startBlock: 11189490
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       entities:
         - BlackListedKol
@@ -64,6 +64,6 @@ dataSources:
           handler: handleTGEDeposited
         - event: WithdrawPenaltyAndUpdateAddress(bool,address,uint256)
           handler: handleWithdrawPenaltyAndUpdateAddress
-        - event: WithdrawPresaleByCampaignOwner(address,uint256,uint256)
+        - event: WithdrawPresaleByCampaignOwner(uint256,address,uint256,uint256)
           handler: handleWithdrawPresaleByCampaignOwner
       file: ./src/proto-kol-2.ts
